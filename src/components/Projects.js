@@ -1,8 +1,9 @@
 import React from 'react';
+import labels from '../Labels';
 import {Duration, Location, Highlights, Keywords} from './Commons'
 
 function getTitle(lang){
-	return lang === "fr" ? "Projets" : "Projects"
+	return labels.projects.title[lang];
 }
 
 function ProjectItem({data, lang}){

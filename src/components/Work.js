@@ -1,15 +1,16 @@
 import React from 'react';
+import labels from '../Labels';
 import { Duration, Location, Highlights, Keywords } from './Commons'
 
 function getTitle(lang){
-  return lang === "fr" ? "Expériences professionnelles" : "Work Experience"
+  return labels.work.title[lang];
 }
 
 function getPosition(data, lang){
   return data.position[lang] ? data.position[lang] : data.position;
 }
 
-function getPlace(data, lang){
+function getPlace(data){
   return data.client ? data.client : data.employer;
 }
 
@@ -19,12 +20,12 @@ function getPlaceName(data, lang){
 }
 
 function Position({ data, lang }) {
-  const place = getPlace(data, lang);
+  const place = getPlace(data);
   const name = getPlaceName(data, lang);
   return (
     <div>
       <span className="position">{getPosition(data, lang)}</span>
-        &nbsp;{lang === 'fr' ? "chez" : "at"}&nbsp;
+        &nbsp;{labels.common.at[lang]}&nbsp;
       {place.url ?
         <span className="website"><a target="_blank" href={place.url}>{name}</a></span>:
         <div className="company">{name}</div>

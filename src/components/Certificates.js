@@ -1,7 +1,8 @@
 import React from 'react';
+import labels from '../Labels';
 
 function getTitle(lang){
-  return lang === "fr" ? "Certifications" : "Certificates";
+  return labels.certificates.title[lang];
 }
 
 function getName(data, lang){

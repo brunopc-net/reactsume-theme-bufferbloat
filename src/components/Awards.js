@@ -1,4 +1,5 @@
 import React from 'react';
+import labels from '../Labels';
 
 function getYear(date){
   return date.split("-")[0];
@@ -34,7 +35,7 @@ function Awards({data, lang }) {
   return data && (
     <section className="section">
       <header>
-        <h2 className="section-title">Awards</h2>
+        <h2 className="section-title">{labels.awards.title[lang]}</h2>
       </header>
       <section id="awards">
         {data && data.forEach(award =>

@@ -1,4 +1,20 @@
 import React from 'react';
+import labels from '../Labels';
+
+function getLocale(lang) {
+  switch (lang) {
+    case 'en':
+      return 'en-US';
+    case 'fr':
+      return 'fr-FR';
+    case 'es':
+      return 'es-ES';
+    case 'de':
+      return 'de-DE'
+    case 'it':
+      return 'it-IT';
+  }
+}
 
 function getFormattedDate(date, format, lang) {
   var dateOpt = {};
@@ -11,16 +27,15 @@ function getFormattedDate(date, format, lang) {
       break;
   }
 
-  const locale = lang.includes('fr') ? 'fr-CA' : 'en-US';
-  const formattedDate = new Date(date).toLocaleDateString(locale, dateOpt);
+  const formattedDate = new Date(date).toLocaleDateString(getLocale(lang), dateOpt);
   return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);;
 }
 
-function getXpTime(xp, lang){
-  var time = xp.months < 12 ? xp.months+" months" : xp.years+" years";
-  if(lang === "fr"){
-    time = time.replace("months", "mois").replace("years", "ans");
-  }
+function getXpTime(xp, lang) {
+  var time = xp.months < 12 ?
+    xp.months + " " + labels.common.months[lang] :
+    xp.years + " " + labels.common.years[lang];
+
   return `(${time})`;
 }
 

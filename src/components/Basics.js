@@ -1,4 +1,5 @@
 import React from 'react';
+import labels from '../Labels';
 
 function Location({ data }) {
 	return (<span className="location">
@@ -51,7 +52,7 @@ function Profile({ data }) {
 
 function Headline({ data, lang }) {
 	const name = `${data.name}, ${data.title[lang]}`;
-	const xpLabel = lang === "fr" ? "années d'expérience" : "years of experience";
+	const xpLabel = labels.basics.xp[lang];
 	return <>
 		<h1 className="name">{name}</h1>
 		<h2 className="label">{data.label[lang]} | {data.experience} {xpLabel}</h2>
@@ -77,7 +78,7 @@ function Basics({ data, lang, pdf}) {
 			{pdf && <div id="download-link">
 				<i className="fa-solid fa-download" />&nbsp;
 				<a href={pdf.fileUrl} download={pdf.fileName}>
-					{lang === "fr" ? "Téléchargez-moi" : "Download me"}
+					{labels.basics.download[lang]}
 				</a>
 			</div>}
 		</header>

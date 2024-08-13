@@ -1,8 +1,9 @@
 import React from 'react';
+import labels from '../Labels';
 import { Keywords } from './Commons'
 
 function getTitle(lang) {
-  return lang === "fr" ? "Intérêts" : "Interests"
+  return labels.interests.title[lang];
 }
 
 function getName(data, lang){

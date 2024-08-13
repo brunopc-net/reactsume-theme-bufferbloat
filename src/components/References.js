@@ -1,7 +1,8 @@
 import React from 'react';
+import labels from '../Labels';
 
 function getTitle(lang) {
-  return lang === "fr" ? "Références" : "References"
+  return labels.references.title[lang];
 }
 
 function Author({ data, lang }) {

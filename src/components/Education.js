@@ -1,19 +1,15 @@
 import React from 'react';
+import labels from '../Labels';
 import { Duration, Location } from './Commons'
 
 function getTitle(lang){
-  return lang === "fr" ? "Formation" : "Education"
+  return labels.education.title[lang];
 }
 
 function Studies({ data, lang }){
   const area = data.area[lang] ? data.area[lang] : data.area;
   const type = data.studyType[lang] ? data.studyType[lang] : data.studyType;
-  return lang === 'fr' ? <>
-    {<div className="studyType">{type}</div>}, {<div className="area">{area}</div>}
-  </> : <>
-    {<div className="area">{area}</div>}
-    {<div className="studyType"> {type}</div>}
-  </>;
+  return <div className="studyType">{type}</div>, <div className="area">{area}</div>;
 }
 
 function EducationItem({ data, lang }) {
@@ -32,7 +28,7 @@ function EducationItem({ data, lang }) {
         {data.gpa && <div className='gpa'>
           <span className="gradeLabel"> Grade:</span> <span className="grade">{ data.gpa }</span>
         </div>}
-        {data.summary && <div className="summary">{summary}</div>}
+        {data.summary && <div className="summary">{data.summary[lang]}</div>}
       </div>
     </section>
   );

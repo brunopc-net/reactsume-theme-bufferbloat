@@ -16,9 +16,14 @@ import References from './components/References';
 import '../src/style.css';
 
 const DEFAULT_LANG = 'en';
+const SUPPORTED_LANGS = ['en', 'fr', 'es', 'de', 'it'];
 
-const Resume = ({ resumeData, lang, pdf }) => {
+const Bufferbloat = ({ resumeData, lang, pdf }) => {
     lang ??= DEFAULT_LANG;
+
+    if(SUPPORTED_LANGS.indexOf(lang) === -1) 
+        return <div>Error: lang {lang} is not supported - Possible values: {SUPPORTED_LANGS.join(', ')}</div>;
+
     return (
         <div id="resume">
             <Basics data={resumeData.basics} lang={lang} pdf={pdf} />
@@ -38,4 +43,4 @@ const Resume = ({ resumeData, lang, pdf }) => {
 }
 
 
-export default Resume;
+export default Bufferbloat;

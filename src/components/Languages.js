@@ -1,15 +1,17 @@
 import React from 'react';
+import labels from '../Labels';
 
 function getTitle(lang){
-  return lang === "fr" ? "Langues" : "Languages"
+  return labels.languages.title[lang];
 }
 
 function LanguageItem({data, lang}){
+  const fluencyCssClass = "level fluency "+data.fluency['en'].toLowerCase();
   return (
     <div className="display">
       {data.language && <h3 className="language">{data.language}</h3>}
       <div className="item">
-        {data.fluency && <div className={"level fluency "+data.fluency['en'].toLowerCase()}>
+        {data.fluency && <div className={fluencyCssClass}>
           {data.fluencyDisplay ?
             <em>{data.fluencyDisplay}</em>:
             <em>{data.fluency[lang]}</em>

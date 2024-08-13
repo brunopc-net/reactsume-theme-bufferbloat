@@ -1,7 +1,12 @@
 import React from 'react';
-import {Duration, Location, Highlights, Keywords} from './Commons'
+import labels from '../Labels';
+import { Duration, Location, Highlights, Keywords } from './Commons'
 
-function VolunteerItem({data}){
+function getTitle(lang) {
+  return labels.volunteer.title[lang];
+}
+
+function VolunteerItem({ data, lang }) {
   return (
     <section className="volunteer-item">
       <header className="clear">
@@ -18,22 +23,22 @@ function VolunteerItem({data}){
       <Location data={data.location} />
       <Keywords data={data} />
       <div className="item">
-        {data.summary && <div className="summary">{summary}</div>}
+        {data.summary && <div className="summary">{data.summary[lang]}</div>}
         <Highlights data={data} />
       </div>
     </section>
   );
 }
 
-function Volunteer({data, lang }){
+function Volunteer({ data, lang }) {
   return data && data.length && (
     <section className="section">
       <header>
-        <h2 className='section-title'>Volunteer</h2>
+        <h2 className='section-title'>{getTitle(lang)}</h2>
       </header>
       <section id="volunteer">
-        {data.map(volunteerItem => 
-          <VolunteerItem key={volunteerItem.position+volunteerItem.organization} data={volunteerItem} />
+        {data.map(volunteerItem =>
+          <VolunteerItem key={volunteerItem.position + volunteerItem.organization} data={volunteerItem} />
         )}
       </section>
     </section>
