@@ -29,6 +29,7 @@ function Contact({ data }) {
 }
 
 function Profile({ data }) {
+	const pdfUrl = data.url.replace('https://','').replace('www.','');
 	return (
 		<div className="item">
 			{data.network &&
@@ -39,7 +40,7 @@ function Profile({ data }) {
 							&nbsp;<a target="_blank" href={data.url}>{data.username}</a>
 						</span>
 						<span className="url-full">
-							&nbsp;<a target="_blank" href={data.url}>{data.url}</a>
+							&nbsp;<a target="_blank" href={data.url}>{pdfUrl}</a>
 						</span>
 					</> :
 						<span>{data.username}</span>
