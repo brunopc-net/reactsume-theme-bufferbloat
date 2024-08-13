@@ -1,0 +1,23 @@
+{
+  "name": "reactsume-theme-bufferbloat",
+  "version": "1.0.2",
+  "main": "dist/index.js",
+  "description": "React version (reactsume theme) of Francesco Esposito's jsonresume-theme-stackoverflow",
+  "keywords": ["jsonresume", "json resume", "reactsume", "react resume", "React"],
+  "scripts": {
+    "build": "babel src --out-dir dist"
+  },
+  "author": "Bruno Pettersen-Coulombe",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.24.8",
+    "@babel/preset-env": "^7.24.8",
+    "@babel/preset-react": "^7.24.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1",
+    "react-router-dom": "^6.26.0",
+    "webpack": "^5.93.0"
+  }
+}
