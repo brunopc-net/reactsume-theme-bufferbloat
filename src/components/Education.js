@@ -38,9 +38,7 @@ function Education({ data, lang }) {
   return data && (
     <section className="section">
       <header>
-        <h2 className='section-title'>
-          {getTitle(lang)} <span className="item-count">({data.length})</span>
-        </h2>
+        <h2 className='section-title'>{getTitle(lang)}</h2>
       </header>
       <section id="education">
         {data.map(educationItem =>

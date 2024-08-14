@@ -31,9 +31,7 @@ function Projects({data, lang }){
   return data && data.length > 0 && (
     <section className="section">
       <header>
-        <h2 className='section-title'>
-          {getTitle(lang)} <span className="item-count">({data.length})</span>
-        </h2>
+        <h2 className='section-title'>{getTitle(lang)}</h2>
       </header>
       <section id="projects">
         {data.map(project => 
