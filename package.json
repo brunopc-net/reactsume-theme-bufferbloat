@@ -1,11 +1,12 @@
 {
   "name": "reactsume-theme-bufferbloat",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "main": "dist/index.js",
   "description": "React version (reactsume theme) of Francesco Esposito's jsonresume-theme-stackoverflow",
   "keywords": ["jsonresume", "json resume", "reactsume", "react resume", "React"],
   "scripts": {
-    "build": "babel src --out-dir dist && copyfiles --flat src/*.css dist"
+    "build": "babel src --out-dir dist && copyfiles --flat src/*.css dist",
+    "publish": "npm run build && npm publish"
   },
   "author": "Bruno Pettersen-Coulombe",
   "license": "MIT",
