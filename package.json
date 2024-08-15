@@ -1,6 +1,6 @@
 {
   "name": "reactsume-theme-bufferbloat",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "main": "dist/index.js",
   "description": "React version (reactsume theme) of Francesco Esposito's jsonresume-theme-stackoverflow",
   "keywords": ["jsonresume", "json resume", "reactsume", "react resume", "React"],
