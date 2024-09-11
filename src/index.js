@@ -13,7 +13,7 @@ import Languages from './components/Languages';
 import Interests from './components/Interests';
 import References from './components/References';
 
-import '../src/style.css';
+import './style.css';
 
 const DEFAULT_LANG = 'en';
 const SUPPORTED_LANGS = ['en', 'fr', 'es', 'de', 'it'];
