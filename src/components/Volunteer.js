@@ -17,7 +17,7 @@ function VolunteerItem({ data, lang }) {
         </div>
       </header>
       {data.website && <div className="website">
-        <span className="fa-solid fa-up-right-from-square"></span>
+        <span className="fa-solid fa-up-right-from-square">&nbsp;</span>
         <a target="_blank" href={data.website}>{data.website}</a>
       </div>}
       <Location data={data.location} />

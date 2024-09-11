@@ -9,7 +9,9 @@ function getTitle(lang){
 function Studies({ data, lang }){
   const area = data.area[lang] ? data.area[lang] : data.area;
   const type = data.studyType[lang] ? data.studyType[lang] : data.studyType;
-  return <div className="studyType">{type}</div>, <div className="area">{area}</div>;
+  return <>
+    <span className="studyType">{type}</span>, <span className="area">{area}</span>
+  </>;
 }
 
 function EducationItem({ data, lang }) {
@@ -19,7 +21,10 @@ function EducationItem({ data, lang }) {
         <Duration data={data} format="Y" lang={lang} />
         <Studies data={data} lang={lang} />
         {data.institution && data.url ?
-          <div className="institution"><a target="_blank" href={data.url}>{data.institution}</a></div> :
+          <div className="institution">
+            <span className="fa-solid fa-up-right-from-square">&nbsp;</span>
+            <a target="_blank" href={data.url}>{data.institution}</a>
+          </div> :
           <div className="area">{data.institution}</div>
         }
       </header>
@@ -39,12 +44,12 @@ function Education({ data, lang }) {
     <section className="section">
       <header>
         <h2 className='section-title'>
-          {getTitle(lang)} <span className="item-count">({data.length})</span>
+          {getTitle(lang)}
         </h2>
       </header>
       <section id="education">
-        {data.map(educationItem =>
-          <EducationItem key={educationItem.area + educationItem.studyType} data={educationItem} lang={lang} />
+        {data.map(item =>
+          <EducationItem key={item.area.en + item.studyType.en} data={item} lang={lang} />
         )}
       </section>
     </section>

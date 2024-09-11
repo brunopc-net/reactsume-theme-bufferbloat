@@ -26,9 +26,12 @@ function getFormattedDate(date, format, lang) {
       dateOpt = { year: 'numeric', month: 'long' };
       break;
   }
+  
+  let origDate = new Date(date)
+  origDate.setMonth(origDate.getMonth()+1); //Adjust month as it's zero indexed
 
-  const formattedDate = new Date(date).toLocaleDateString(getLocale(lang), dateOpt);
-  return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);;
+  const formattedDate = new Date(origDate).toLocaleDateString(getLocale(lang), dateOpt);
+  return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
 }
 
 function getXpTime(xp, lang) {

@@ -24,10 +24,12 @@ function Position({ data, lang }) {
   const name = getPlaceName(data, lang);
   return (
     <div>
-      <span className="position">{getPosition(data, lang)}</span>
-        &nbsp;{labels.common.at[lang]}&nbsp;
+      <span className="position">{getPosition(data, lang)}, </span>
       {place.url ?
-        <span className="website"><a target="_blank" href={place.url}>{name}</a></span>:
+        <span className="website">
+          <span className="fa-solid fa-up-right-from-square">&nbsp;</span>
+          <a target="_blank" href={place.url}>{name}</a>
+        </span>:
         <div className="company">{name}</div>
       }
     </div>
@@ -43,7 +45,7 @@ function WorkItem({ data, lang }) {
       </header>
       <Location data={data.location} />
       {data.url && <span className="url">
-        <span className="fa-solid fa-up-right-from-square"></span>
+        <span className="fa-solid fa-up-right-from-square">&nbsp;</span>
         <a target="_blank" href={data.url}>{data.url}</a>
       </span>}
       <Keywords data={data} />

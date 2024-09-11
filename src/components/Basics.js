@@ -14,8 +14,8 @@ function Location({ data }) {
 function Contact({ data }) {
 	return (<div id="contact">
 		{data.website && <div className="website">
-			<span className="fa-solid fa-up-right-from-square"></span>
-			&nbsp;<a className="hide-href-print" target="_blank" href={data.website}>{data.website}</a>
+			<span className="fa-solid fa-up-right-from-square">&nbsp;</span>
+			<a className="hide-href-print" target="_blank" href={data.website}>{data.website}</a>
 		</div>}
 		{data.email && <div className="email">
 			<span className="fa-regular fa-envelope"></span>

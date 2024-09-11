@@ -225,6 +225,11 @@ section .location {
   width: 33%;
 }
 
+.certificate-id {
+  font-size: 0.8em;
+  font-style: italic;
+}
+
 #header > #profiles,
 #header > #contact,
 #skills,
@@ -621,9 +626,6 @@ section .location {
     width: 70%;
     word-break: normal;
   }
-  .section header .date {
-    padding: 0.2em;
-  }
   .display {
     display: none;
   }
@@ -645,11 +647,6 @@ section .location {
   }
   .item-count {
     display: none;
-  }
-  .company::before,
-  .organization::before,
-  .awarder::before {
-    content: "at ";
   }
   .main-summary {
     padding: 0;
@@ -748,7 +745,8 @@ section .location {
   #download-link,
   #profiles .username,
   #references,
-  .image {
+  .image,
+  .fa-up-right-from-square {
     display: none
   }
 }

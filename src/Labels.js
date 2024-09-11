@@ -26,11 +26,11 @@ const labels = {
             it: "anni di esperienza"
         },
         download: {
-            en: "Download me",
-            fr: "Téléchargez-moi",
-            es: "Descárgame",
-            de: "Lade mich herunter",
-            it: "Scaricami"
+            en: "Download",
+            fr: "Télécharger",
+            es: "Descargar",
+            de: "Herunterladen",
+            it: "Scaricalo"
         },
     },
     common: {

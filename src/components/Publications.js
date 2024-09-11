@@ -24,7 +24,7 @@ function PublicationItem({ data, lang }) {
         <div className="header-left">
           {data.name && <span className="name">
             {data.website ? <span className="website">
-              <span className="fa-solid fa-up-right-from-square"></span>
+              <span className="fa-solid fa-up-right-from-square">&nbsp;</span>
               <a target="_blank" href={data.website}>{data.name}</a>
             </span> :
               <>{data.name}</>

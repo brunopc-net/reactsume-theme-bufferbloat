@@ -9,6 +9,12 @@ function getName(data, lang){
   return data.name[lang] ? data.name[lang] : data.name;
 }
 
+function getId(proof){
+  // Split the URL by "/" and return the last part
+  const parts = proof.split('/');
+  return parts.pop() || parts.pop();  // Handles cases where URL ends with "/"
+}
+
 function getFormattedDate(date, lang) {
   const locale = lang.includes('fr') ? 'fr-CA' : 'en-US';
   return new Date(date).toLocaleDateString(
@@ -28,18 +34,17 @@ function CertificateItem({data, lang}){
           {getFormattedDate(data.date, lang)}
         </div>
         <div>
-          <span className="name">{getName(data, lang)}</span>
+          <span className="name">{getName(data, lang)}</span><br/>
+          <span>
+            <span className="fa-solid fa-up-right-from-square">&nbsp;</span>
+            <a target="_blank" href={data.proof} className="certificate-id">
+              {getId(data.proof)}
+            </a>
+          </span>
         </div>
-        {data.url ? 
-          <div>
-            <span className="issuer">
-              <a target="_blank" href={data.url}>{data.issuer}</a>
-            </span>
-          </div> :
-          <div>
-            <span className="issuer">{data.issuer}</span>
-          </div>
-        }
+        <div>
+          <span className="issuer">{data.issuer}</span>
+        </div>
       </header>
     </section>
   );
@@ -47,12 +52,12 @@ function CertificateItem({data, lang}){
 
 function Certificates({data, lang }){
   if(data){
-    const certificates = data.filter((cert) => cert.hasOwnProperty('date'));
+    const certificates = data.filter((cert) => cert.display != false);
     return (
       <section className="section">
         <header>
           <h2 className="section-title">
-            {getTitle(lang)} <span className="item-count">({certificates.length})</span>
+            {getTitle(lang)}
           </h2>
         </header>
         <section id="certificates">

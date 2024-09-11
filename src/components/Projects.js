@@ -15,8 +15,8 @@ function ProjectItem({data, lang}){
       </header>}
       <Location data={data.location} />
       {data.url && <span className="website">
-        <span className="fa-solid fa-up-right-from-square"></span>
-        &nbsp;<a target="_blank" href={data.url}>{data.url}</a>
+        <span className="fa-solid fa-up-right-from-square">&nbsp;</span>
+        <a target="_blank" href={data.url}>{data.url}</a>
       </span>}
       <Keywords data={data} />
       <div className="item">
@@ -32,7 +32,7 @@ function Projects({data, lang }){
     <section className="section">
       <header>
         <h2 className='section-title'>
-          {getTitle(lang)} <span className="item-count">({data.length})</span>
+          {getTitle(lang)}
         </h2>
       </header>
       <section id="projects">
