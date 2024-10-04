@@ -15,10 +15,10 @@ function ProjectItem({data, lang}){
       </header>}
       <Location data={data.location} />
       {data.url && <span className="website">
-        <span className="fa-solid fa-up-right-from-square">&nbsp;</span>
+        <span className="fa-solid  printHidden">&nbsp;</span>
         <a target="_blank" href={data.url}>{data.url}</a>
       </span>}
-      <Keywords data={data} />
+      <Keywords data={data.skills.flatMap(skill => skill.keywords)} />
       <div className="item">
         {data.summary && <div className="summary">{data.summary[lang]}</div>}
         <Highlights data={data} />

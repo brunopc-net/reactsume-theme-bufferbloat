@@ -30,7 +30,7 @@ function ReferenceItem({ data, lang }) {
 
 function References({ data, lang }) {
   return data && data.length && (
-    <section id="references" className="section">
+    <section id="references" className="section printHidden">
       <header>
         <h2 className='section-title'>{getTitle(lang)}</h2>
       </header>

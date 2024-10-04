@@ -77,9 +77,9 @@ function Highlights({ data, lang }) {
 }
 
 function Keywords({ data, lang }) {
-  return data.keywords && (
+  return (
     <ul className="keywords">
-      {data.keywords.map(kw => {
+      {data.map(kw => {
         const value = kw[lang] ? kw[lang] : kw;
         return <li key={value}>{value}</li>
       })}

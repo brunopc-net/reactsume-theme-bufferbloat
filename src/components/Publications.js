@@ -24,7 +24,7 @@ function PublicationItem({ data, lang }) {
         <div className="header-left">
           {data.name && <span className="name">
             {data.website ? <span className="website">
-              <span className="fa-solid fa-up-right-from-square">&nbsp;</span>
+              <span className="fa-solid fa-up-right-from-square printHidden">&nbsp;</span>
               <a target="_blank" href={data.website}>{data.name}</a>
             </span> :
               <>{data.name}</>
@@ -35,7 +35,7 @@ function PublicationItem({ data, lang }) {
           </span>}
         </div>
       </header>
-      <Keywords data={data} />
+      <Keywords data={data.skills.flatMap(skill => skill.keywords)} />
       <div className="item">
         {data.summary && <div className="summary">{summary[lang]}</div>}
       </div>

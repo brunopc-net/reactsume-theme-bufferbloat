@@ -14,7 +14,7 @@ function Location({ data }) {
 function Contact({ data }) {
 	return (<div id="contact">
 		{data.website && <div className="website">
-			<span className="fa-solid fa-up-right-from-square">&nbsp;</span>
+			<span className="fa-solid fa-up-right-from-square printHidden">&nbsp;</span>
 			<a className="hide-href-print" target="_blank" href={data.website}>{data.website}</a>
 		</div>}
 		{data.email && <div className="email">
@@ -36,7 +36,7 @@ function Profile({ data }) {
 				<div>
 					<span className={"fa-brands fa-" + data.network + " " + data.network + " social"}></span>
 					{data.url ? <>
-						<span className="username">
+						<span className="username printHidden">
 							&nbsp;<a target="_blank" href={data.url}>{data.username}</a>
 						</span>
 						<span className="url-full">
@@ -64,7 +64,7 @@ function Basics({ data, lang, pdf}) {
 	return (<>
 		<header id="header" className="clear">
 			{data.image ? <>
-				<img className="image" src={data.image} alt={data.name} />
+				<img className="headshot printHidden" src={data.image} alt={data.name} />
 				<div className="middle"><Headline data={data} lang={lang} /></div>
 			</> :
 				<div><Headline data={data} lang={lang} /></div>
@@ -76,7 +76,7 @@ function Basics({ data, lang, pdf}) {
 					<Profile key={profile.url} data={profile} />
 				)}
 			</div>}
-			{pdf && <div id="download-link">
+			{pdf && <div class="printHidden">
 				<i className="fa-solid fa-download" />&nbsp;
 				<a href={pdf.fileUrl} download={pdf.fileName}>
 					{labels.basics.download[lang]}

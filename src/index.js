@@ -28,7 +28,7 @@ const Bufferbloat = ({ resumeData, lang, pdf }) => {
         <div id="resume">
             <Basics data={resumeData.basics} lang={lang} pdf={pdf} />
             <Skills data={resumeData.skills} lang={lang} />
-            <Work data={resumeData.work} lang={lang} />
+            <Work showSkills data={resumeData.work} lang={lang} />
             <Volunteer data={resumeData.volunteer} lang={lang} />
             <Education data={resumeData.education} lang={lang} />
             <Awards data={resumeData.awards} lang={lang} />

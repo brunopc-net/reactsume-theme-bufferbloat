@@ -214,8 +214,8 @@ section .location {
   padding: 0;
 }
 
-#profiles .username {display: inline ;}
-#profiles .url-full {display: none ;}
+#profiles .username {display: inline;}
+#profiles .url-full {display: none;}
 
 .project-item,
 .certificate-item,
@@ -266,7 +266,7 @@ section .location {
   font-weight: 300;
 }
 
-#header .image {
+#header .headshot {
   width: 11em;
   float: right;
   border-radius: 4px;
@@ -555,12 +555,14 @@ section .location {
 }
 
 .level.advanced .bar::after,
+.level.senior .bar::after,
 .level.fluent .bar::after {
   background: #5cb85c;
   width: 7.5em;
 }
 
 .level.master .bar::after,
+.level.lead .bar::after,
 .level.native.speaker .bar::after {
   background: #59c596;
   width: 10em;
@@ -586,11 +588,6 @@ section .location {
   content: "";
   display: table;
   clear: both;
-}
-
-.display {
-  display: block;
-  opacity: 1 !important;
 }
 
 /****************
@@ -626,12 +623,6 @@ section .location {
     width: 70%;
     word-break: normal;
   }
-  .display {
-    display: none;
-  }
-  .display:not(.none) {
-    display: block;
-  }
 }
 
 @media print {
@@ -645,9 +636,6 @@ section .location {
   @page {
     margin: 1cm 1.4cm;
   }
-  .item-count {
-    display: none;
-  }
   .main-summary {
     padding: 0;
     background: transparent;
@@ -656,12 +644,11 @@ section .location {
     margin: 0.8rem 0;
     padding: 0;
   }
-  .section header {
-    padding-bottom: 0.15rem;
-  }
+  .section header,
   .section .location {
     padding-bottom: 0.15rem;
   }
+
   .section > section > section {
     margin: 0 0 1em 0;
   }
@@ -708,9 +695,7 @@ section .location {
   .highlights {
     margin: 0.5em 0 0 0;
   }
-  #skills .keywords::before {
-    content: none;
-  }
+
   .section p {
     margin: 0;
     padding: 0;
@@ -726,27 +711,20 @@ section .location {
     font-style: normal;
     padding: 0.1em 0;
   }
-  .level .bar {
-    display: none;
-  }
+
   #profiles .item {
     padding: 0;
   }
-  .item.display {
-    display: block;
-    opacity: 1 !important;
-  }
+
   .fa-location-dot:before {
     padding-left: 0.1em;
   }
+  
   #profiles .url-full {
     display: inline ;
   }
-  #download-link,
-  #profiles .username,
-  #references,
-  .image,
-  .fa-up-right-from-square {
+
+  .printHidden {
     display: none
   }
 }

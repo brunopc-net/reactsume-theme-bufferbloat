@@ -17,11 +17,11 @@ function VolunteerItem({ data, lang }) {
         </div>
       </header>
       {data.website && <div className="website">
-        <span className="fa-solid fa-up-right-from-square">&nbsp;</span>
+        <span className="fa-solid fa-up-right-from-square printHidden">&nbsp;</span>
         <a target="_blank" href={data.website}>{data.website}</a>
       </div>}
       <Location data={data.location} />
-      <Keywords data={data} />
+      <Keywords data={data.skills.flatMap(skill => skill.keywords)} />
       <div className="item">
         {data.summary && <div className="summary">{data.summary[lang]}</div>}
         <Highlights data={data} />

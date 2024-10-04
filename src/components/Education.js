@@ -22,7 +22,7 @@ function EducationItem({ data, lang }) {
         <Studies data={data} lang={lang} />
         {data.institution && data.url ?
           <div className="institution">
-            <span className="fa-solid fa-up-right-from-square">&nbsp;</span>
+            <span className="fa-solid fa-up-right-from-square printHidden">&nbsp;</span>
             <a target="_blank" href={data.url}>{data.institution}</a>
           </div> :
           <div className="area">{data.institution}</div>

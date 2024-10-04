@@ -36,7 +36,7 @@ function CertificateItem({data, lang}){
         <div>
           <span className="name">{getName(data, lang)}</span><br/>
           <span>
-            <span className="fa-solid fa-up-right-from-square">&nbsp;</span>
+            <span className="fa-solid fa-up-right-from-square printHiddeen">&nbsp;</span>
             <a target="_blank" href={data.proof} className="certificate-id">
               {getId(data.proof)}
             </a>
