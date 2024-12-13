@@ -1,41 +1,33 @@
 import React from 'react';
 import labels from '../Labels';
 
-function getLocale(lang) {
-  switch (lang) {
-    case 'en':
-      return 'en-US';
-    case 'fr':
-      return 'fr-FR';
-    case 'es':
-      return 'es-ES';
-    case 'de':
-      return 'de-DE'
-    case 'it':
-      return 'it-IT';
-  }
-}
-
 function getFormattedDate(date, format, lang) {
-  var dateOpt = {};
-  switch (format) {
-    case 'Y':
-      dateOpt = { year: 'numeric' };
-      break;
-    case 'MY':
-      dateOpt = { year: 'numeric', month: 'long' };
-      break;
-  }
-  
-  let origDate = new Date(date)
-  origDate.setMonth(origDate.getMonth()+1); //Adjust month as it's zero indexed
+  const origDate = new Date(date)
+  // Dates in Javascript are zero-indexed
+  // Adjusting the date by adding 1 to the month, making sure it's valid
+  const nextMonthDate = new Date(origDate.getFullYear(), origDate.getMonth() + 1);
 
-  const formattedDate = new Date(origDate).toLocaleDateString(getLocale(lang), dateOpt);
+  const locale = {
+    'en': 'en-US',
+    'fr': 'fr-FR',
+    'es': 'es-ES',
+    'de': 'de-DE',
+    'it': 'it-IT'
+  }[lang];
+
+  const dateOpt = {
+    'Y': { year: 'numeric' },
+    'MY': { year: 'numeric', month: 'long' }
+  }[format];
+
+  const formattedDate = new Date(nextMonthDate).toLocaleDateString(locale, dateOpt);
+
+  //Making the first letter of the month Uppercase
   return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
 }
 
 function getXpTime(xp, lang) {
-  var time = xp.months < 12 ?
+  const time = xp.months < 12 ?
     xp.months + " " + labels.common.months[lang] :
     xp.years + " " + labels.common.years[lang];
 
