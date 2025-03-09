@@ -35,7 +35,9 @@ function PublicationItem({ data, lang }) {
           </span>}
         </div>
       </header>
-      <Keywords data={data.skills.flatMap(skill => skill.keywords)} />
+      {data.skills &&
+        <Keywords data={data.skills.flatMap(skill => skill.keywords)} />
+      }
       <div className="item">
         {data.summary && <div className="summary">{summary[lang]}</div>}
       </div>

@@ -21,7 +21,9 @@ function VolunteerItem({ data, lang }) {
         <a target="_blank" href={data.website}>{data.website}</a>
       </div>}
       <Location data={data.location} />
-      <Keywords data={data.skills.flatMap(skill => skill.keywords)} />
+      {data.skills &&
+        <Keywords data={data.skills.flatMap(skill => skill.keywords)} />
+      }
       <div className="item">
         {data.summary && <div className="summary">{data.summary[lang]}</div>}
         <Highlights data={data} />

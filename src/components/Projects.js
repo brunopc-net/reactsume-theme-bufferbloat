@@ -18,7 +18,9 @@ function ProjectItem({data, lang}){
         <span className="fa-solid  printHidden">&nbsp;</span>
         <a target="_blank" href={data.url}>{data.url}</a>
       </span>}
-      <Keywords data={data.skills.flatMap(skill => skill.keywords)} />
+      {data.skills &&
+        <Keywords data={data.skills.flatMap(skill => skill.keywords)} />
+      }
       <div className="item">
         {data.summary && <div className="summary">{data.summary[lang]}</div>}
         <Highlights data={data} />
