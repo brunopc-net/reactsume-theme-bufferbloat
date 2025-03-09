@@ -49,7 +49,9 @@ function WorkItem({ data, lang }) {
         <Position data={data} lang={lang} />
       </header>
       <Location data={data.location} />
-      <Keywords data={data.skills.flatMap(skill => skill.keywords)} />
+      {data.skills &&
+        <Keywords data={data.skills.flatMap(skill => skill.keywords)} />
+      }
       <div className="item" id="work-item">
         {data.summary && <div className="summary">{data.summary[lang]}</div>}
         <Highlights data={data} lang={lang} />
