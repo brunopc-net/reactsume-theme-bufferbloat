@@ -10,7 +10,7 @@ function VolunteerItem({ data, lang }) {
   return (
     <section className="volunteer-item">
       <header className="clear">
-        <Duration data={data} format="MY" lang={lang} />
+        <Duration time={data.time} format="MY" lang={lang} />
         <div className="header-left">
           {data.position && <div className="position">{data.position}</div>}
           {data.organization && <div className="organization">{data.organization}</div>}

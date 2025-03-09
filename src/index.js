@@ -21,8 +21,11 @@ const SUPPORTED_LANGS = ['en', 'fr', 'es', 'de', 'it'];
 const Bufferbloat = ({ resumeData, lang, pdf }) => {
     lang ??= DEFAULT_LANG;
 
-    if(SUPPORTED_LANGS.indexOf(lang) === -1) 
-        return <div>Error: lang {lang} is not supported - Possible values: {SUPPORTED_LANGS.join(', ')}</div>;
+    if(SUPPORTED_LANGS.indexOf(lang) === -1) {
+        return <div>
+            Error: lang {lang} is not supported - Possible values: {SUPPORTED_LANGS.join(', ')}
+        </div>;
+    }
 
     return (
         <div id="resume">

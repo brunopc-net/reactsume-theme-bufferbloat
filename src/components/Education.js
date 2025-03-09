@@ -14,26 +14,33 @@ function Studies({ data, lang }){
   </>;
 }
 
+function Institution({ data }){
+  return data.institution && data.url ?
+    <div className="institution">
+      <span className="fa-solid fa-up-right-from-square printHidden">&nbsp;</span>
+      <a target="_blank" href={data.url}>{data.institution}</a>
+    </div> :
+    <div className="area">
+      {data.institution}
+    </div>
+}
+
 function EducationItem({ data, lang }) {
   return (
     <section className="education-item">
       <header className="clear">
-        <Duration data={data} format="Y" lang={lang} />
+        <Duration time={data.time} format="Y" lang={lang} />
         <Studies data={data} lang={lang} />
-        {data.institution && data.url ?
-          <div className="institution">
-            <span className="fa-solid fa-up-right-from-square printHidden">&nbsp;</span>
-            <a target="_blank" href={data.url}>{data.institution}</a>
-          </div> :
-          <div className="area">{data.institution}</div>
-        }
+        <Institution data={data} />
       </header>
       <Location data={data.location} />
       <div className="item">
         {data.gpa && <div className='gpa'>
-          <span className="gradeLabel"> Grade:</span> <span className="grade">{ data.gpa }</span>
+          <span className="gradeLabel">Grade: </span><span className="grade">{data.gpa}</span>
         </div>}
-        {data.summary && <div className="summary">{data.summary[lang]}</div>}
+        {data.summary && <div className="summary">
+          {data.summary[lang]}
+        </div>}
       </div>
     </section>
   );

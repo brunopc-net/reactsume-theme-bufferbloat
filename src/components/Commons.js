@@ -26,24 +26,31 @@ function getFormattedDate(date, format, lang) {
   return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
 }
 
-function getXpTime(xp, lang) {
-  const time = xp.months < 12 ?
-    xp.months + " " + labels.common.months[lang] :
-    xp.years + " " + labels.common.years[lang];
+function getXpTime(xp_months, lang) {
+  const time = xp_months < 12 ? {
+    qty: xp_months,
+    label: labels.common.months[lang]
+  } : {
+    qty: Math.round((xp_months / 12) * 2),
+    label: labels.common.years[lang]
+  }
 
-  return `(${time})`;
+  return `(${time.qty+" "+time.label})`;
 }
 
-function Duration({ data, format, lang }) {
-  return data.startDate && (
+function Duration({ time, format, lang }) {
+  return time && time.start && (
     <div className="date">
       <span className="startDate">
-        {getFormattedDate(data.startDate, format, lang)}
+        {getFormattedDate(time.start, format, lang)}
       </span>
-      {data.endDate ?
-        <span className="endDate"> - {getFormattedDate(data.endDate, format, lang)}</span> :
+      {time.end ?
+        <span className="endDate"> - {getFormattedDate(time.end, format, lang)}</span> :
         <span className="endDate"> - Current</span>
-      }{data.experience && <span className="experience"> {getXpTime(data.experience, lang)}</span>}
+      }
+      {time.months && <span className="experience">
+        {getXpTime(time.months, lang)}
+      </span>}
     </div>
   );
 }
@@ -51,15 +58,21 @@ function Duration({ data, format, lang }) {
 function Location({ data }) {
   return data && (<span className="location">
     <span className="fa-solid fa-location-dot"></span>
-    {data.city && <span className="city">{data.city}</span>}
-    {data.region && <span className="city">{data.region}</span>}
-    {data.countryCode && <span className="city">{data.countryCode}</span>}
+    {data.city && <span className="city">
+      {data.city}
+    </span>}
+    {data.region && <span className="region">
+      {data.region}
+    </span>}
+    {data.countryCode && <span className="country">
+      {data.countryCode}
+    </span>}
   </span>
   );
 }
 
 function Highlights({ data, lang }) {
-  return data.highlights && (
+  return data && data.highlights && (
     <ul className="highlights">
       {data.highlights.map(hl =>
         <li key={hl[lang]}>{hl[lang]}</li>
@@ -69,7 +82,7 @@ function Highlights({ data, lang }) {
 }
 
 function Keywords({ data, lang }) {
-  return (
+  return data && (
     <ul className="keywords">
       {data.map(kw => {
         const value = kw[lang] ? kw[lang] : kw;

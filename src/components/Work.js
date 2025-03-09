@@ -7,21 +7,26 @@ function getTitle(lang){
 }
 
 function getPosition(data, lang){
-  return data.position[lang] ? data.position[lang] : data.position;
+  const position = data.position[lang] ? 
+    data.position[lang] :
+    data.position;
+
+  return (data.client && data.employer) ?
+    "("+getPlaceName(data.employer)+") "+position:
+    position;
 }
 
 function getPlace(data){
   return data.client ? data.client : data.employer;
 }
 
-function getPlaceName(data, lang){
-  const place = getPlace(data, lang);
+function getPlaceName(place, lang){
   return place[lang] ? place[lang] : place.name
 }
 
 function Position({ data, lang }) {
   const place = getPlace(data);
-  const name = getPlaceName(data, lang);
+  const name = getPlaceName(place, lang);
   return (
     <div>
       <span className="position">{getPosition(data, lang)}, </span>
@@ -40,14 +45,10 @@ function WorkItem({ data, lang }) {
   return (
     <section className="work-item">
       <header className="clear">
-        <Duration data={data} format="MY" lang={lang} />
+        <Duration time={data.time} format="MY" lang={lang} />
         <Position data={data} lang={lang} />
       </header>
       <Location data={data.location} />
-      {data.url && <span className="url">
-        <span className="fa-solid fa-up-right-from-square printHidden">&nbsp;</span>
-        <a target="_blank" href={data.url}>{data.url}</a>
-      </span>}
       <Keywords data={data.skills.flatMap(skill => skill.keywords)} />
       <div className="item" id="work-item">
         {data.summary && <div className="summary">{data.summary[lang]}</div>}
@@ -68,7 +69,7 @@ function Work({ data, lang }) {
       <section id="work">
         {data.map(workItem => {
           return <WorkItem 
-            key={getPosition(workItem, lang) + getPlaceName(workItem, lang)}
+            key={getPosition(workItem, lang) + getPlaceName(getPlace(workItem), lang)}
             data={workItem}
             lang={lang}
           />

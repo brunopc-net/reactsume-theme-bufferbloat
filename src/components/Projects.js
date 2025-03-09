@@ -11,7 +11,7 @@ function ProjectItem({data, lang}){
     <section className="project-item">
       {data.name && <header className="clear">
         <div className="position">{data.name}</div>
-        <Duration data={data} format="MY" lang={lang} />
+        <Duration time={data.time} format="MY" lang={lang} />
       </header>}
       <Location data={data.location} />
       {data.url && <span className="website">
