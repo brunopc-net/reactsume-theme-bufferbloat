@@ -18,7 +18,7 @@ import './style.css';
 const DEFAULT_LANG = 'en';
 const SUPPORTED_LANGS = ['en', 'fr', 'es', 'de', 'it'];
 
-const Bufferbloat = ({ resumeData, lang, pdf }) => {
+const Bufferbloat = ({ resumeData, lang, pdf, picture }) => {
     lang ??= DEFAULT_LANG;
 
     if(SUPPORTED_LANGS.indexOf(lang) === -1) {
@@ -29,7 +29,7 @@ const Bufferbloat = ({ resumeData, lang, pdf }) => {
 
     return (
         <div id="resume">
-            <Basics data={resumeData.basics} lang={lang} pdf={pdf} />
+            <Basics data={resumeData.basics} lang={lang} pdf={pdf} picture={picture}/>
             <Skills data={resumeData.skills} lang={lang} />
             <Work showSkills data={resumeData.work} lang={lang} />
             <Volunteer data={resumeData.volunteer} lang={lang} />

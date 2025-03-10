@@ -60,11 +60,11 @@ function Headline({ data, lang }) {
 	</>
 }
 
-function Basics({ data, lang, pdf}) {
+function Basics({ data, lang, pdf, picture}) {
 	return (<>
 		<header id="header" className="clear">
-			{data.image ? <>
-				<img className="headshot printHidden" src={data.image} alt={data.name} />
+			{picture ? <>
+				<img className="headshot printHidden" src={picture} alt={data.name} />
 				<div className="middle"><Headline data={data} lang={lang} /></div>
 			</> :
 				<div><Headline data={data} lang={lang} /></div>
