@@ -49,7 +49,7 @@ function WorkItem({ data, lang }) {
         <Position data={data} lang={lang} />
       </header>
       <Location data={data.location} />
-      {data.skills &&
+      {data?.skills?.length > 0 &&
         <Keywords data={data.skills.flatMap(skill => skill.keywords)} />
       }
       <div className="item" id="work-item">
