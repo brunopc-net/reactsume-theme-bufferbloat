@@ -11,6 +11,10 @@ function getPosition(data, lang){
     data.position[lang] :
     data.position;
 
+  console.log(data.client);
+  console.log(data.employer);
+  console.log(getPlaceName(data.employer));
+
   return data.client
     ? `(${getPlaceName(data.employer)}) ${position}`
     : position;
