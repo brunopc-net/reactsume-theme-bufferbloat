@@ -76,7 +76,7 @@ function Basics({ data, lang, pdf}) {
 					<Profile key={profile.url} data={profile} />
 				)}
 			</div>}
-			{pdf && <div class="printHidden">
+			{pdf && <div className="printHidden">
 				<i className="fa-solid fa-download" />&nbsp;
 				<a href={pdf.fileUrl} download={pdf.fileName}>
 					{labels.basics.download[lang]}

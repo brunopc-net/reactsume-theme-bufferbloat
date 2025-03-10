@@ -7,6 +7,9 @@ function getTitle(lang){
 }
 
 function getPosition(data, lang){
+
+  console.log(data);
+
   const position = data.position[lang] ? 
     data.position[lang] :
     data.position;

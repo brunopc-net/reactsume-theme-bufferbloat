@@ -39,7 +39,7 @@ function getXpTime(xp_months, lang) {
 }
 
 function Duration({ time, format, lang }) {
-  return time && time.start && (
+  return time?.start && (
     <div className="date">
       <span className="startDate">
         {getFormattedDate(time.start, format, lang)}
