@@ -23,7 +23,7 @@ function SkillItem({ data, lang }) {
 }
 
 function Skills({ data, lang }) {
-	return data && data.length && (
+	return data?.length > 0 && (
 		<section className="section">
 			<header>
 				<h2 className='section-title'>{getTitle(lang)}</h2>
