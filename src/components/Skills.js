@@ -1,5 +1,6 @@
 import React from 'react';
 import labels from '../Labels';
+import { Keywords } from './Commons'
 
 function getTitle(lang) {
 	return labels.skills.title[lang];
