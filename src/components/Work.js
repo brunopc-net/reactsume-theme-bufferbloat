@@ -7,19 +7,16 @@ function getTitle(lang){
 }
 
 function getPosition(data, lang){
-
-  console.log(data);
+  const type = data.type[lang] ? 
+    data.type[lang] :
+    data.type;
 
   const position = data.position[lang] ? 
     data.position[lang] :
-    data.position;
+    data.position;  
 
-  console.log(data.client);
-  console.log(data.employer);
-  console.log(getPlaceName(data.employer));
-
-  return data.client
-    ? `(${getPlaceName(data.employer)}) ${position}`
+  return data.type
+    ? `(${type}) ${position}`
     : position;
 }
 

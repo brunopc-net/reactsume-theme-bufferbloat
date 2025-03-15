@@ -18,12 +18,12 @@ function SkillItem({ data, lang }) {
 				}
 				<div className="bar"></div>
 			</div>}
+			<Keywords data={data.skills.flatMap(skill => skill.keywords)} />
 		</div>
 	);
 }
 
 function Skills({ data, lang }) {
-	console.log("function Skills: "+data);
 	return data?.length > 0 && (
 		<section className="section">
 			<header>

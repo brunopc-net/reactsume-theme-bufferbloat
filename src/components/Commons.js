@@ -31,7 +31,7 @@ function getXpTime(xp_months, lang) {
     qty: xp_months,
     label: labels.common.months[lang]
   } : {
-    qty: Math.round((xp_months / 12) * 2),
+    qty: Math.round((xp_months / 12) * 2) / 2,
     label: labels.common.years[lang]
   }
 
@@ -49,7 +49,7 @@ function Duration({ time, format, lang }) {
         <span className="endDate"> - Current</span>
       }
       {time.months && <span className="experience">
-        {getXpTime(time.months, lang)}
+        &nbsp;{getXpTime(time.months, lang)}
       </span>}
     </div>
   );
