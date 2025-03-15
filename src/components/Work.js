@@ -7,7 +7,7 @@ function getTitle(lang){
 }
 
 function getPosition(data, lang){
-  const type = data.type[lang] ? 
+  const type = data.type && data.type[lang] ? 
     data.type[lang] :
     data.type;
 
