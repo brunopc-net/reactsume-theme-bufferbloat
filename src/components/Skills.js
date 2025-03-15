@@ -19,7 +19,7 @@ function SkillItem({ data, lang }) {
 				}
 				<div className="bar"></div>
 			</div>}
-			<Keywords data={data.skills.flatMap(skill => skill.keywords)} />
+			<Keywords data={data.keywords} />
 		</div>
 	);
 }
