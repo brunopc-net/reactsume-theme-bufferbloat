@@ -42,6 +42,8 @@ function getXp(time, lang) {
     ? time.months
     : getXpCurrent(time);
 
+  console.log("xpMonths: "+xpMonths);
+
   const xp = xpMonths < 12 ? {
     qty: xpMonths,
     label: labels.common.months[lang]
@@ -63,9 +65,9 @@ function Duration({ time, format, lang }) {
         <span className="endDate"> - {getFormattedDate(time.end, format, lang)}</span> :
         <span className="endDate"> - Current</span>
       }
-      {time && <span className="experience">
+      <span className="experience">
         &nbsp;{getXp(time, lang)}
-      </span>}
+      </span>
     </div>
   );
 }
