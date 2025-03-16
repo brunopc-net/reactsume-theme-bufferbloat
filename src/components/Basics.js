@@ -71,11 +71,13 @@ function Basics({ data, lang, pdf, picture}) {
 			}
 			<Location data={data.location} />
 			<Contact data={data.contact} />
-			{data.profiles && <div id="profiles">
-				{data.profiles.map(profile =>
-					<Profile key={profile.url} data={profile} />
-				)}
-			</div>}
+			{data.profiles && 
+				<div id="profiles">
+					{data.profiles.map(profile =>
+						<Profile key={profile.url} data={profile} />
+					)}
+				</div>
+			}
 			{pdf && <div className="printHidden">
 				<i className="fa-solid fa-download" />&nbsp;
 				<a href={pdf.fileUrl} download={pdf.fileName}>
@@ -83,11 +85,13 @@ function Basics({ data, lang, pdf, picture}) {
 				</a>
 			</div>}
 		</header>
-		{data.summary && <section className="section">
-			<section className="main-summary">
-				<div>{data.summary[lang]}</div>
+		{data.summary && 
+			<section className="section">
+				<section className="main-summary">
+					<div dangerouslySetInnerHTML={{ __html: data.summary[lang] }} />
+				</section>
 			</section>
-		</section>}
+		}
 	</>);
 }
 
