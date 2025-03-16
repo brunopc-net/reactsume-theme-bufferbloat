@@ -7,8 +7,5 @@ COPY package*.json ./
 
 RUN npm install
 
-# Install dependencies
-RUN npm ci
-
 # Command to start the development server
 CMD ["tail", "-f", "/dev/null"]
