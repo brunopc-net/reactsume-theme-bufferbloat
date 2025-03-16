@@ -40,10 +40,26 @@ function getXpCurrent(time){
   return months <= 0 ? 0 : months;
 }
 
+function getCompletedMonths(startDate) {
+  // Parse the start date (assumed format is "YYYY-MM")
+  const [startYear, startMonth] = startDate.split('-').map(Number);
+  const startDateObj = new Date(startYear, startMonth - 1, 1); // Start date, setting the day to the 1st
+
+  // Get today's date
+  const today = new Date();
+
+  // Calculate the difference in months
+  let monthsDifference = (today.getFullYear() - startDateObj.getFullYear()) * 12;
+  monthsDifference += today.getMonth() - startDateObj.getMonth();
+
+  // Return the number of completed months
+  return monthsDifference;
+}
+
 function getXp(time, lang) {
   const xpMonths = time.end
     ? time.months
-    : getXpCurrent(time);
+    : getCompletedMonths(time.start);
 
   console.log("xpMonths: "+xpMonths);
 
