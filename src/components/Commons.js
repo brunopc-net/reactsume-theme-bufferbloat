@@ -30,11 +30,14 @@ function getXpCurrent(time){
   const start = new Date(time.start);
   const end = new Date();
 
-  const months = 1 +
-    (end.getFullYear() - start.getFullYear()) * 12
+  console.log("end.getMonth(): "+end.getMonth());
+  console.log("start.getMonth(): "+start.getMonth());
+
+  const months = 
+    (end.getFullYear() - start.getFullYear()) * 12 
     + end.getMonth() - start.getMonth()
   
-    return months <= 0 ? 0 : months;
+  return months <= 0 ? 0 : months;
 }
 
 function getXp(time, lang) {
