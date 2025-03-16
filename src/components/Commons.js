@@ -26,12 +26,26 @@ function getFormattedDate(date, format, lang) {
   return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
 }
 
-function getXpTime(xp_months, lang) {
-  const time = xp_months < 12 ? {
-    qty: xp_months,
+function getXpCurrent(time){
+  const start = new Date(time.start);
+  const end = new Date();
+
+  const months = 1 +
+    (end.getFullYear() - start.getFullYear()) * 12
+    + end.getMonth() - start.getMonth()
+  
+    return months <= 0 ? 0 : months;
+}
+
+function getXpTime(time, lang) {
+  const xpMonths = time.end
+    ? time.months
+    : getXpCurrent(time);
+  const time = xpMonths < 12 ? {
+    qty: xpMonths,
     label: labels.common.months[lang]
   } : {
-    qty: Math.round((xp_months / 12) * 2) / 2,
+    qty: Math.round((xpMonths / 12) * 2) / 2,
     label: labels.common.years[lang]
   }
 
@@ -48,8 +62,8 @@ function Duration({ time, format, lang }) {
         <span className="endDate"> - {getFormattedDate(time.end, format, lang)}</span> :
         <span className="endDate"> - Current</span>
       }
-      {time.months && <span className="experience">
-        &nbsp;{getXpTime(time.months, lang)}
+      {time && <span className="experience">
+        &nbsp;{getXpTime(time, lang)}
       </span>}
     </div>
   );
