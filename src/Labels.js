@@ -34,6 +34,13 @@ const labels = {
         },
     },
     common: {
+        month: {
+            en: "month",
+            fr: "mois",
+            es: "mes",
+            de: "Monat",
+            it: "mese"
+        },
         months: {
             en: "months",
             fr: "mois",

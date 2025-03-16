@@ -26,20 +26,6 @@ function getFormattedDate(date, format, lang) {
   return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
 }
 
-function getXpCurrent(time){
-  const start = new Date(time.start);
-  const end = new Date();
-
-  console.log("end.getMonth(): "+end.getMonth());
-  console.log("start.getMonth(): "+start.getMonth());
-
-  const months = 
-    (end.getFullYear() - start.getFullYear()) * 12 
-    + end.getMonth() - start.getMonth()
-  
-  return months <= 0 ? 0 : months;
-}
-
 function getCompletedMonths(startDate) {
   // Parse the start date (assumed format is "YYYY-MM")
   const [startYear, startMonth] = startDate.split('-').map(Number);
@@ -61,15 +47,16 @@ function getXp(time, lang) {
     ? time.months
     : getCompletedMonths(time.start);
 
-  console.log("xpMonths: "+xpMonths);
-
-  const xp = xpMonths < 12 ? {
+  const xp = xpMonths === 1 ? {
+    qty: 1,
+    label: labels.common.month[lang]
+  } : xpMonths < 12 ? {
     qty: xpMonths,
     label: labels.common.months[lang]
   } : {
     qty: Math.round((xpMonths / 12) * 2) / 2,
     label: labels.common.years[lang]
-  }
+  };
 
   return `(${xp.qty+" "+xp.label})`;
 }
