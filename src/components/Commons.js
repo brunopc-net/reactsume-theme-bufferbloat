@@ -37,11 +37,12 @@ function getXpCurrent(time){
     return months <= 0 ? 0 : months;
 }
 
-function getXpTime(time, lang) {
+function getXp(time, lang) {
   const xpMonths = time.end
     ? time.months
     : getXpCurrent(time);
-  const time = xpMonths < 12 ? {
+
+  const xp = xpMonths < 12 ? {
     qty: xpMonths,
     label: labels.common.months[lang]
   } : {
@@ -49,7 +50,7 @@ function getXpTime(time, lang) {
     label: labels.common.years[lang]
   }
 
-  return `(${time.qty+" "+time.label})`;
+  return `(${xp.qty+" "+xp.label})`;
 }
 
 function Duration({ time, format, lang }) {
@@ -63,7 +64,7 @@ function Duration({ time, format, lang }) {
         <span className="endDate"> - Current</span>
       }
       {time && <span className="experience">
-        &nbsp;{getXpTime(time, lang)}
+        &nbsp;{getXp(time, lang)}
       </span>}
     </div>
   );
